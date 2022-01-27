@@ -39,6 +39,6 @@ const Project = () => {
 
 
 const mapStateToProps = (state: IAppState) =>({
-    currentAlertCount: state.projects.viewing
+    currentlyViewing: state.projects.viewing
 })
 export default connect(mapStateToProps)(Project)

@@ -1,4 +1,4 @@
-import { GETTINGPROJECTS, GOTPROJECTS, initialProjectState, OPENPROJECT, TOGGLEEDITPROJECTMODAL, TOGGLENEWPROJECTMODAL } from "./Projects";
+import { GETTINGPROJECTS, GOTPROJECTS, initialProjectState, OPENPROJECT, TOGGLEEDITPROJECTMODAL, TOGGLENEWPROJECTMODAL, UPDATELOCATION } from "./Projects";
 import { ProjectsActions } from "./ProjectsActions";
 
 export const projectsReducer = (
@@ -39,6 +39,13 @@ export const projectsReducer = (
             return {
                 ...state,
                 showNewProjectModal: !state.showNewProjectModal
+            }
+        }
+
+        case UPDATELOCATION: {
+            return {
+                ...state,
+                projects: {...action.data}
             }
         }
     }

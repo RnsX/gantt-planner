@@ -22,7 +22,7 @@ const ProjectList = () => {
 
     useEffect(()=> {
         renderProjectList();
-        console.log(projectList);
+        console.log('use ffect from project list',projectList);
     },[])
 
     return (

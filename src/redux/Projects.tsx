@@ -1,5 +1,5 @@
 import { IProject } from "../data-structures/Project";
-import { ITask } from "../data-structures/Task";
+import { ILocation, ITask } from "../data-structures/Task";
 
 export interface IProjectState {
     readonly loading: boolean;
@@ -43,3 +43,9 @@ export const TOGGLEEDITPROJECTMODAL = 'ToggleEditProjectModal';
 export const toggleEditProjectModalAction = () => ({
     type: TOGGLEEDITPROJECTMODAL
 } as const);
+
+export const UPDATELOCATION = 'UpdateLocation';
+export const updateLocationAction = (projects: IProject[]) => ({
+    type: UPDATELOCATION,
+    data: projects
+}as const)

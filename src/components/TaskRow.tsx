@@ -5,7 +5,7 @@ import { ITask } from '../data-structures/Task'
 import { IAppState } from '../redux/Store';
 import Slider from './Slider';
 
-const TaskRow = (props:{task: ITask, projectId: number}) => {
+const TaskRow = (props:{task: ITask}) => {
 
     const { id, name, orderId } = props.task.TaskInfo;
 
@@ -13,7 +13,7 @@ const TaskRow = (props:{task: ITask, projectId: number}) => {
         <div className='task-container'>
             <div className='task-left'>{orderId} | {name}</div>
             <div className='slider-container'>
-                <Slider taskId={id} projectId={props.projectId}></Slider>
+                <Slider task={props.task}></Slider>
             </div>
         <style>
             {`

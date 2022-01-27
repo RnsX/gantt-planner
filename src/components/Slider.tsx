@@ -1,34 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { IProject } from '../data-structures/Project';
-import { defaultLocationState, ILocation } from '../data-structures/Task';
-import { gotProjectsAction } from '../redux/Projects';
+import { defaultLocationState, ILocation, ITask } from '../data-structures/Task';
+import { gotProjectsAction, updateLocationAction } from '../redux/Projects';
 import { IAppState } from '../redux/Store';
 
 
-const Slider = (props:{taskId:number, projectId: number}) => {
+const Slider = (props:{task: ITask}) => {
 
-  const dispatch = useDispatch();
-  const initSliderState: ILocation | undefined = useSelector((state:IAppState) => state.projects.projects)
-    .find(x=>x.Info.id == props.projectId)?.Tasks
-    .find(y=>y.TaskInfo.id == props.taskId)?.location;
+  const projects: IProject[] = useSelector((state:IAppState) => state.projects.projects);
 
-  const projectList: IProject[] = useSelector((state:IAppState)=> state.projects.projects);
-
-  const [slider, setSlider] = useState(initSliderState != undefined ? initSliderState : defaultLocationState);
-
-  const updateTaskLocation = () => {
-    projectList.forEach(project => {
-      if(project.Info.id == props.projectId)
-      {
-        project.Tasks.forEach(taskOfProject => {
-          taskOfProject.location = slider;
-        });
-      }
-    });
-    dispatch(gotProjectsAction(projectList));
-  }
+  const [slider, setSlider] = useState<ILocation>(defaultLocationState);
 
   const startMove = (e: React.MouseEvent) => {
     if(slider.isMoving == false)
@@ -41,8 +24,8 @@ const Slider = (props:{taskId:number, projectId: number}) => {
     if(slider.isMoving == true)
     {
       setSlider({...slider, isMoving: false, lastLocation: e.clientX, lastDiff: slider.diff, lastWidth: slider.deltaWidth});
-      updateTaskLocation();
     }
+    console.log('mouse up', slider)
   };
   const moveItem = (e: React.MouseEvent) => {
     const { isMoving, lastLocation, lastDiff, isChangingWidth, lastWidth, diff} = slider;
@@ -62,8 +45,6 @@ const Slider = (props:{taskId:number, projectId: number}) => {
   const toggleWidthChanger = () => {
       setSlider({...slider, isChangingWidth: !slider.isChangingWidth})    
   }
-
-
 
   return (
          <div style={{
@@ -87,4 +68,9 @@ const Slider = (props:{taskId:number, projectId: number}) => {
   )
 };
 
-export default Slider;
+export default Slider
+
+// const mapStateToProps = (state: IAppState) =>({
+//   currentAlertCount: state.projects.viewing
+// })
+// export default connect(mapStateToProps)(Project)

@@ -11,13 +11,14 @@ const SliderContainer = () => {
 
   const props:IProject | null = useSelector((state:IAppState) => state.projects.viewing);
   console.log(props);
+  
 
   return (
     <div className='sliderContainer'>
         {
           props != null && props.Tasks.length != 0 
           ? props.Tasks.map((task,idx)=> (
-            <TaskRow key={task.TaskInfo.id} projectId={props.Info.id} task={task}></TaskRow>
+            <TaskRow task={task}></TaskRow>
           ))
           : <p>no tasks found</p>
         }

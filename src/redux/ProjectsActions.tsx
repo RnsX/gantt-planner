@@ -1,4 +1,4 @@
-import { gettingProjectsAction, gotProjectsAction, openProjectAction, toggleEditProjectModalAction, toggleNewProjectModalAction } from "./Projects";
+import { gettingProjectsAction, gotProjectsAction, openProjectAction, toggleEditProjectModalAction, toggleNewProjectModalAction, updateLocationAction } from "./Projects";
 
 export type ProjectsActions = 
     | ReturnType<typeof gettingProjectsAction>
@@ -6,4 +6,5 @@ export type ProjectsActions =
     | ReturnType<typeof openProjectAction>
     | ReturnType<typeof toggleEditProjectModalAction>
     | ReturnType<typeof toggleNewProjectModalAction>
+    | ReturnType<typeof updateLocationAction>
 ;

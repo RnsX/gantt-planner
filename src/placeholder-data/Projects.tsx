@@ -10,12 +10,11 @@ export interface IAPI_Response{
 };
 
 const simulateLoad = async () => {
-    setTimeout(()=> console.log('fetching'),400);
 }
 
 // INITIALIZED CACHE (replace with redis cache?)
 
-let API_projectList:IProject[] = [
+export let API_projectList:IProject[] = [
 {
     Info: {
     id: 1,
