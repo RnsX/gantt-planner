@@ -9,14 +9,14 @@ import TaskRow from './TaskRow';
 const SliderContainer = () => {
 
   const props:IProject | null = useSelector((state:IAppState) => state.projects.viewing);
-  
+
 
   return (
     <div className='sliderContainer'>
         {
           props != null && props.Tasks.length != 0 
           ? props.Tasks.map((task,idx)=> (
-            <TaskRow task={task} project={props}></TaskRow>
+            <TaskRow key={`${task.TaskInfo.id}|${props.Info.id}`} task={task} project={props}></TaskRow>
           ))
           : <p>no tasks found</p>
         }
