@@ -1,20 +1,34 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IProject } from '../data-structures/Project';
+import { defaultLocationState, ILocation } from '../data-structures/Task';
+import { gotProjectsAction } from '../redux/Projects';
+import { IAppState } from '../redux/Store';
 
 
-const Slider = () => {
+const Slider = (props:{taskId:number, projectId: number}) => {
 
+  const dispatch = useDispatch();
+  const initSliderState: ILocation | undefined = useSelector((state:IAppState) => state.projects.projects)
+    .find(x=>x.Info.id == props.projectId)?.Tasks
+    .find(y=>y.TaskInfo.id == props.taskId)?.location;
 
-  const [slider, setSlider] = useState({
-    isMoving: false,
-    lastLocation: 0,
-    diff: 0,
-    lastDiff: 0,
+  const projectList: IProject[] = useSelector((state:IAppState)=> state.projects.projects);
 
-    isChangingWidth: false,
-    lastWidth: 100,
-    deltaWidth: 100
-  });
+  const [slider, setSlider] = useState(initSliderState != undefined ? initSliderState : defaultLocationState);
+
+  const updateTaskLocation = () => {
+    projectList.forEach(project => {
+      if(project.Info.id == props.projectId)
+      {
+        project.Tasks.forEach(taskOfProject => {
+          taskOfProject.location = slider;
+        });
+      }
+    });
+    dispatch(gotProjectsAction(projectList));
+  }
 
   const startMove = (e: React.MouseEvent) => {
     if(slider.isMoving == false)
@@ -27,7 +41,7 @@ const Slider = () => {
     if(slider.isMoving == true)
     {
       setSlider({...slider, isMoving: false, lastLocation: e.clientX, lastDiff: slider.diff, lastWidth: slider.deltaWidth});
-      console.log('mouse up:', slider)
+      updateTaskLocation();
     }
   };
   const moveItem = (e: React.MouseEvent) => {
@@ -49,9 +63,19 @@ const Slider = () => {
       setSlider({...slider, isChangingWidth: !slider.isChangingWidth})    
   }
 
+
+
   return (
-      <>
-         <div className='slider'
+         <div style={{
+           minWidth: `${slider.deltaWidth}px`,
+           maxWidth: `${slider.deltaWidth}px`,
+           height: `50px`,
+           border: `1px solid black`,
+           transform: `translateX(${slider.diff}px)`,
+           display: `flex`,
+           justifyContent: `flex-end`,
+           backgroundColor: `${slider.isChangingWidth == true ? 'lightgreen' : 'white'}`,
+         }}
           onMouseDown={(e: React.MouseEvent) => startMove(e)}
           onMouseUp={(e: React.MouseEvent) => endMove(e)}
           onMouseMove={(e: React.MouseEvent) => moveItem(e)}
@@ -59,33 +83,7 @@ const Slider = () => {
           onDoubleClick={toggleWidthChanger}
 
         >
-            <div className='widthButton'
-            >
-
-            </div>
         </div>
-        <style>
-            {`
-                .slider {
-                    min-width: ${slider.deltaWidth}px;
-                    max-width: ${slider.deltaWidth}px;
-                    height: 50px;
-                    border: 1px solid black;
-                    transform: translateX(${slider.diff}px);
-                    display: flex;
-                    justify-content: flex-end;
-                    background-color: ${slider.isChangingWidth == true ? 'lightgreen' : 'white'};
-                }
-                .widthButton {
-                    min-width: 20px;
-                    max-width: 20px;
-                    min-height: 100%;
-                    background-color: black;
-                    border: 1px solid black;
-                }
-            `}
-        </style>
-      </>
   )
 };
 

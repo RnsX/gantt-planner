@@ -13,8 +13,11 @@ const ProjectList = () => {
     const projectList:IProject[] = useSelector((state: IAppState) => state.projects.projects);
  
     const renderProjectList = async () => {
-        dispatch(gettingProjectsAction());
-        dispatch(gotProjectsAction(await API_GetProjects().then((response)=>{return JSON.parse(response.JSON_response)})));
+        if(projectList.length == 0)
+        {
+            dispatch(gettingProjectsAction());
+            dispatch(gotProjectsAction(await API_GetProjects().then((response)=>{return JSON.parse(response.JSON_response)})));
+        };
     };
 
     useEffect(()=> {

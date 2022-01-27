@@ -4,6 +4,7 @@ import { IProject } from '../data-structures/Project';
 import { ITask } from '../data-structures/Task';
 import { IAppState } from '../redux/Store';
 import Slider from './Slider';
+import TaskRow from './TaskRow';
 
 
 const SliderContainer = () => {
@@ -16,7 +17,7 @@ const SliderContainer = () => {
         {
           props != null && props.Tasks.length != 0 
           ? props.Tasks.map((task,idx)=> (
-              <Slider key={idx}></Slider>
+            <TaskRow key={task.TaskInfo.id} projectId={props.Info.id} task={task}></TaskRow>
           ))
           : <p>no tasks found</p>
         }
@@ -35,6 +36,7 @@ const SliderContainer = () => {
                 height: fit-content;
                 border: 1px solid red;
                 overflow: hidden;
+                padding: 1em;
             }
           `}
         </style>

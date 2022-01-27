@@ -1,4 +1,5 @@
 import { IProject } from "../data-structures/Project";
+import { ITask } from "../data-structures/Task";
 
 export interface IProjectState {
     readonly loading: boolean;

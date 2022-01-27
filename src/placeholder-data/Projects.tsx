@@ -30,11 +30,68 @@ let API_projectList:IProject[] = [
     name: 'Another project ',
     description: 'Auto generated project used as ilustrative sample!'
     },
-    Tasks: [{
-        TaskInfo: {id: 1, orderId: 1, name: 'placeholder task'},
-        predecesors: [],
-        assignedResources: []
-    }]
+    Tasks: [
+        {
+            TaskInfo: {id: 1, orderId: 1, name: 'placeholder task'},
+            location: {
+                isMoving: false,
+                lastLocation: 0,
+                diff: 0,
+                lastDiff: 0,
+
+                isChangingWidth: false,
+                lastWidth: 100,
+                deltaWidth: 100
+            },
+            predecesors: [],
+            assignedResources: []
+        },
+        {
+            TaskInfo: {id: 2, orderId: 1, name: 'placeholder task 2'},
+            location: {
+                isMoving: false,
+                lastLocation: 0,
+                diff: 0,
+                lastDiff: 0,
+
+                isChangingWidth: false,
+                lastWidth: 100,
+                deltaWidth: 100
+            },
+            predecesors: [],
+            assignedResources: []
+        },
+        {
+            TaskInfo: {id: 3, orderId: 1, name: 'placeholder task 3'},
+            location: {
+                isMoving: false,
+                lastLocation: 0,
+                diff: 0,
+                lastDiff: 0,
+
+                isChangingWidth: false,
+                lastWidth: 100,
+                deltaWidth: 100
+            },
+            predecesors: [],
+            assignedResources: []
+        },
+        {
+            TaskInfo: {id: 4, orderId: 1, name: 'placeholder task 4'},
+            location: {
+                isMoving: false,
+                lastLocation: 0,
+                diff: 0,
+                lastDiff: 0,
+
+                isChangingWidth: false,
+                lastWidth: 100,
+                deltaWidth: 100
+            },
+            predecesors: [],
+            assignedResources: []
+        }
+    ]
 },
 {
     Info: {
