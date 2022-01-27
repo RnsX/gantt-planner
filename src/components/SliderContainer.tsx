@@ -1,16 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { IProject } from '../data-structures/Project';
+import { ITask } from '../data-structures/Task';
+import { IAppState } from '../redux/Store';
 import Slider from './Slider';
 
 
 const SliderContainer = () => {
+
+  const props:IProject | null = useSelector((state:IAppState) => state.projects.viewing);
+  console.log(props);
+
   return (
     <div className='sliderContainer'>
-        <Slider></Slider>
-        <Slider></Slider>
-        <Slider></Slider>
-        <Slider></Slider>
-        <Slider></Slider>
-        <Slider></Slider>
+        {
+          props != null && props.Tasks.length != 0 
+          ? props.Tasks.map((task,idx)=> (
+              <Slider></Slider>
+          ))
+          : <p>no tasks found</p>
+        }
         <style>
           {`
             .page {

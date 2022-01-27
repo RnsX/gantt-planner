@@ -15,7 +15,7 @@ const simulateLoad = async () => {
 
 // INITIALIZED CACHE (replace with redis cache?)
 
-const [API_projectList, setAPI_ProjectList] = useState<IProject[]>([
+let API_projectList:IProject[] = [
 {
     Info: {
     id: 1,
@@ -30,7 +30,11 @@ const [API_projectList, setAPI_ProjectList] = useState<IProject[]>([
     name: 'Another project ',
     description: 'Auto generated project used as ilustrative sample!'
     },
-    Tasks: []
+    Tasks: [{
+        TaskInfo: {id: 1, orderId: 1, name: 'placeholder task'},
+        predecesors: [],
+        assignedResources: []
+    }]
 },
 {
     Info: {
@@ -40,7 +44,7 @@ const [API_projectList, setAPI_ProjectList] = useState<IProject[]>([
     },
     Tasks: []
 }
-]);
+];
 
 // ENDPOINTS
 
@@ -82,7 +86,7 @@ export const API_UpdateProject = async (project: IProject) : Promise<IAPI_Respon
     if(findingProject.length != 0)
     {
         findingProject[0] = project;
-        setAPI_ProjectList({...findingProject});
+        API_projectList = findingProject;
 
         let response: IAPI_Response = {
             statusOK: true,
@@ -102,7 +106,7 @@ export const API_NewTask = async (task: ITask, projectId: number) : Promise<IAPI
     await simulateLoad();
     let list = API_projectList;
     list.find(x=>x.Info.id == projectId)?.Tasks.push(task);
-    setAPI_ProjectList({...list});
+    API_projectList = list;
     var response: IAPI_Response = {
         statusOK: true,
         JSON_response: ""
@@ -120,7 +124,7 @@ export const API_Updatetask = async (task: ITask, projectId: number) : Promise<I
         };
     })
 
-    setAPI_ProjectList({...list});
+    API_projectList = list;
     var response: IAPI_Response = {
         statusOK: true,
         JSON_response: ""
