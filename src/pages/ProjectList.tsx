@@ -28,8 +28,8 @@ const ProjectList = () => {
             <div className='projectList'>
                 {
                     projectList.map((project)=> (
-                        <Link to={`/Project/${project.Info.id}`}>
-                            <ProjectCard key={project.Info.id} project={project}></ProjectCard>
+                        <Link key={project.Info.id} to={`/Project/${project.Info.id}`}>
+                            <ProjectCard project={project}></ProjectCard>
                         </Link>
                     ))
                 }

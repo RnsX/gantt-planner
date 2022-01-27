@@ -49,9 +49,6 @@ const Slider = () => {
       setSlider({...slider, isChangingWidth: !slider.isChangingWidth})    
   }
 
-
-
-
   return (
       <>
          <div className='slider'

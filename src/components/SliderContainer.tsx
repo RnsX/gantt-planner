@@ -16,7 +16,7 @@ const SliderContainer = () => {
         {
           props != null && props.Tasks.length != 0 
           ? props.Tasks.map((task,idx)=> (
-              <Slider></Slider>
+              <Slider key={idx}></Slider>
           ))
           : <p>no tasks found</p>
         }
