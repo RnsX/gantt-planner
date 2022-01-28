@@ -1,11 +1,14 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 
 const LeftSidebar = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
+    const dispatch = useDispatch();
+    // button & function for "add new project"
+    // right click and "edit project" or "remove project"
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', padding:'0.75em', marginTop: '0em'}}>
@@ -14,10 +17,17 @@ const LeftSidebar = () => {
             ? ''
             : <div className='sidebar-button' onClick={() => navigate(-1)}>Go back</div>
         }
-        <div className='sidebar-button'>New project</div>
-        <div className='sidebar-button'>New project</div>
-        <div className='sidebar-button'>New project</div>
-        <div className='sidebar-button'>New project</div>
+        {
+            matchPath({ path: '/Project/:id'},location.pathname) != null
+            ? <div className='sidebar-button'>Add new task</div>
+            : ''
+        }
+        {
+            matchPath({ path: '/'},location.pathname) != null
+            ? <div className='sidebar-button'>Add new project</div>
+            : ''
+        }
+        <div className='sidebar-button'>Placeholder</div>
         <style>
             {`
                 .sidebar-button {
