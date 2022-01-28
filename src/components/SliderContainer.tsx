@@ -33,8 +33,8 @@ const SliderContainer = () => {
             .sliderContainer {
                 min-width: 500px;
                 height: fit-content;
-                border: 1px solid red;
                 overflow: hidden;
+                padding: 1em;
                 padding: 1em;
             }
           `}

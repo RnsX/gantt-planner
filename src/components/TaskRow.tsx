@@ -67,25 +67,29 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
     return (
         <div className='task-container'>
             <div className='task-left'>{orderId} | {name}</div>
-            <div className='slider-container'>
-                
-            <div style={{
-                minWidth: `${slider.deltaWidth}px`,
-                maxWidth: `${slider.deltaWidth}px`,
-                height: `50px`,
-                border: `1px solid black`,
-                transform: `translateX(${slider.diff}px)`,
-                display: `flex`,
-                justifyContent: `flex-end`,
-                backgroundColor: `${slider.isChangingWidth == true ? 'lightgreen' : 'white'}`,
-                }}
-                onMouseDown={(e: React.MouseEvent) => startMove(e)}
-                onMouseUp={(e: React.MouseEvent) => endMove(e)}
-                onMouseMove={(e: React.MouseEvent) => moveItem(e)}
-                onMouseLeave={(e: React.MouseEvent) => endMove(e)}
-                onDoubleClick={toggleWidthChanger}
-            >
-            </div>
+            <div className='slider-container'>   
+                <div style={{
+                        minWidth: `${slider.deltaWidth}px`,
+                        maxWidth: `${slider.deltaWidth}px`,
+                        height: `50px`,
+                        borderRadius: '0.3em',
+                        transform: `translateX(${slider.diff}px)`,
+                        display: `flex`,
+                        justifyContent: `flex-end`,
+                        backgroundColor: `${slider.isChangingWidth == true ? 'lightgreen' : 'white'}`,
+                        margin: '0.5em',
+                        boxShadow: '-5px 1px 20px 1px rgba(0,0,0,0.13)',
+                        border: '1px solid #e2e2e2c9',
+                        cursor: 'pointer',
+                        
+                    }}
+                    onMouseDown={(e: React.MouseEvent) => startMove(e)}
+                    onMouseUp={(e: React.MouseEvent) => endMove(e)}
+                    onMouseMove={(e: React.MouseEvent) => moveItem(e)}
+                    onMouseLeave={(e: React.MouseEvent) => endMove(e)}
+                    onDoubleClick={toggleWidthChanger}
+                >
+                </div>
             </div>
         <style>
             {`
@@ -93,8 +97,7 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    border-top: 1px solid black;
-                    user-select: none;
+                    border-top: 1px solid lightgray;
                 }
                 .task-left {
                     margin-right: 2em;
@@ -105,7 +108,11 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                 .slider-container {
                     overflow: hidden;
                     width: 100%;
-                    border-left: 1px solid black;
+                    border-left: 1px solid lightgray;
+                    user-select: none;
+                    -moz-user-select: none;
+                    -webkit-user-select: none;
+                    -ms-user-select: none;
                 }
             `}
         </style>
