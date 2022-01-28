@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { IProject } from '../data-structures/Project';
@@ -63,6 +63,7 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
         setSlider({...slider, isChangingWidth: !slider.isChangingWidth})    
     }
 
+    
 
     return (
         <div className='task-container'>
