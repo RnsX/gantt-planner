@@ -17,8 +17,6 @@ const SliderContainer = () => {
     currentlySelectedTaskId: 0
   });
 
-
-
   const showRightClick = (
       xPos: number, yPos: number, rowId: string, e: React.MouseEvent<HTMLElement>,
       taskX: number, taskDiffX: number

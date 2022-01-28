@@ -11,36 +11,32 @@ const RightClickWindow = (props:{windowProps: IRightClickWindowProps, closeWindo
     const { visible, locationX, locationY, currentlySelectedTaskId} = props.windowProps;
 
     return (
-        <div className='rightClickMenu'>
-            <p onClick={props.closeWindow}>Close window</p>
-            <p>Task ID: {currentlySelectedTaskId}</p>
-            <style>
-                {`
-                    .rightClickMenu {
-                        width: 120px;
-                        height: 100px;
-                        border: 1px solid lightgray;
-                        padding: 0.33em;
-                        display: ${visible == true ? 'flex' : 'none'};
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        position: absolute;
-                        background-color: white;
-                        transform: translate(${locationX}px, ${locationY}px);
-                        border-radius: 0.5em;
-                        -webkit-box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.3); 
-                        box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.3);
-                        z-index: 99;
-                    }
+        <div className='menu-toggle'>
+            <div className='dropdown-menu dropdown-menu-dark mx-0 shadow rightClickMenu' style={{width: '220px'}}>
+                <button onClick={props.closeWindow} className='dropdown-item' style={{marginBottom: '0em'}}>Close window</button>
+                <hr/>
+                <button onClick={props.closeWindow} className='dropdown-item'>New task</button>
+                <button onClick={props.closeWindow} className='dropdown-item'>Edit task</button>
+                <style>
+                    {`
+                        .menu-toggle {
+                            display: ${visible == true ? 'flex' : 'none'};
+                        }
+                        .rightClickMenu {
+                            position: absolute;
+                            transform: translate(${locationX}px, ${locationY}px);
+                            z-index: 99;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 1em;
+                            font-size: big;
+                        }
                     
-                    .rightClickMenu > button {
-                        padding: 0.2em;
-                        font-size: small;
-                        margin-bottom: 0.25em;
-                    }
-                `}
-            </style>
+                    `}
+                </style>
+            </div>
         </div>
+        
     )
 };
 
