@@ -27,7 +27,6 @@ const ProjectList = () => {
 
     return (
         <div>
-            <h3>Project list</h3>
             <div className='projectList'>
                 {
                     projectList.map((project)=> (
@@ -44,7 +43,8 @@ const ProjectList = () => {
                         justify-content: center;
                         align-items: center;
                         width: 100%;
-                        height: 100vh;
+                        height: 80vh;
+                        flex-wrap: wrap;
                     }
                 `}
             </style>
