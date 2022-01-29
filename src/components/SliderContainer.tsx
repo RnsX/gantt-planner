@@ -36,7 +36,7 @@ const SliderContainer = () => {
 
       {
         props != null && props.Tasks.length != 0 
-        ? props.Tasks.map((task,idx)=> (
+        ? props.Tasks.sort((a, b) => a.TaskInfo.orderId > b.TaskInfo.orderId ? 1 : -1).map((task,idx)=> (
           <div id={task.TaskInfo.id.toString()} onContextMenu={(e:React.MouseEvent<HTMLElement>) => showRightClick(e.clientX, e.clientY, e.currentTarget.id,e, task.location.lastLocation, task.location.lastDiff)}>
             <TaskRow key={`${task.TaskInfo.id}|${props.Info.id}`} task={task} project={props}></TaskRow>
           </div>
