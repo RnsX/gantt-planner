@@ -14,10 +14,13 @@ function App() {
   return (
     <div style={{display: 'flex'}}>
       <BrowserRouter>
-        <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100vh'}}>
+        <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100vh'}} className='shadowAlternative'>
           <LeftSidebar></LeftSidebar>
         </div>
-        <div style={{width: '100%'}}>
+        <div className='b-example-divider divider-additional' style={{minWidth: '2em'}}>
+
+        </div>
+        <div style={{width: '100%', paddingLeft: '1em', paddingTop: '1em'}}>
           <Routes>
             <Route path="/" element={<ProjectList></ProjectList>}/>
             <Route path="/Project/:id" element={<Project></Project>}/>
@@ -25,6 +28,18 @@ function App() {
         </div>
         
       </BrowserRouter>
+      <style>
+        {`
+          .divider-additional {
+            -webkit-box-shadow: inset 0px 0px 14px 5px rgba(0,0,0,0.13); 
+            box-shadow: inset 0px 0px 14px 5px rgba(0,0,0,0.13);
+          }
+          .shadowAlternative {
+            -webkit-box-shadow: 0px 0px 14px 5px rgba(0,0,0,0.21); 
+            box-shadow: 0px 0px 14px 5px rgba(0,0,0,0.21);
+          }
+        `}
+      </style>
     </div>
   );
 }

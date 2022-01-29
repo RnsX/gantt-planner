@@ -63,11 +63,16 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
         setSlider({...slider, isChangingWidth: !slider.isChangingWidth})    
     }
 
-    
-
     return (
         <div className='task-container'>
-            <div className='task-left'>{orderId} | {name}</div>
+            <div className='task-left'>
+                <table className='taskTable'>
+                    <tr className='tableRow'>
+                        <td>{id}</td>
+                        <td>{name}</td>
+                    </tr>
+                </table>
+            </div>
             <div className='slider-container'>   
                 <div style={{
                         minWidth: `${slider.deltaWidth}px`,
@@ -94,6 +99,10 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
             </div>
         <style>
             {`
+                
+                .tableRow > td {
+                    padding-right: 1em;
+                }
                 .task-container {
                     display: flex;
                     justify-content: flex-start;

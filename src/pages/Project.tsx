@@ -29,7 +29,7 @@ const Project = () => {
     
   return (
     <div>
-        <h4>YEEE. Opened project with id:{id}</h4>
+        <h4 style={{fontWeight: 'bold'}}>Gantt chart</h4>
         {
             <SliderContainer></SliderContainer>
         }
