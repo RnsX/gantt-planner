@@ -17,6 +17,7 @@ const RightClickWindow = (props:{windowProps: IRightClickWindowProps, closeWindo
                 <hr/>
                 <button onClick={props.closeWindow} className='dropdown-item'>New task</button>
                 <button onClick={props.closeWindow} className='dropdown-item'>Edit task</button>
+                <button onClick={props.closeWindow} className='dropdown-item'>Change color</button>
                 <style>
                     {`
                         .menu-toggle {
