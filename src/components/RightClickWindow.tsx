@@ -85,7 +85,6 @@ const RightClickWindow = (props:{windowProps: IRightClickWindowProps, closeWindo
                 <button onClick={props.closeWindow} className='dropdown-item'>Change color</button>
                 <button onClick={() => moveUp()} className='dropdown-item'>Move up</button>
                 <button onClick={() => moveDown()} className='dropdown-item'>Move down</button>
-                <button onClick={()=> console.log(viewing)}>log</button>
                 <style>
                     {`
                         .menu-toggle {
