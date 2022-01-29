@@ -29,19 +29,30 @@ const NewTaskModal = () => {
                 predecesors: [],
                 assignedResources: []
             };
-
-            // create new task list
+            
+            // get values from useState form-state
             newTask.TaskInfo = taskInfo;
-            newTaskList.push(newTask);
 
             // assign new task id
             let task = projectList.filter(x=>x.Info.id == viewing.Info.id)[0].Tasks;
             let newTaskId = task.length;
             newTask.TaskInfo.id = newTaskId;
 
+            // assign new order id
+            let newOrderId = 0;
+            newTaskList.forEach(task => {
+                task.TaskInfo.orderId > newOrderId
+                ? newOrderId = task.TaskInfo.orderId
+                : newOrderId = newOrderId;
+            });
+            newOrderId++;
+            newTask.TaskInfo.orderId = newOrderId;
+
+            // create new task list
+            newTaskList.push(newTask);
+
             // create new project list
             let newProjectList = projectList;
-
             newProjectList.filter(x=>x.Info.id == viewing.Info.id)[0].Tasks = newTaskList;
 
             // update project list with new list which contains new task list
@@ -54,7 +65,6 @@ const NewTaskModal = () => {
         orderId: 0,
         name: ''
     });
-
     const updateTaskInfo = (input:string, value: string) => {
         setTaskInfo({...taskInfo, [input]:value});
     }
