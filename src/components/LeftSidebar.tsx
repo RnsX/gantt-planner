@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 import NavBtn from '../components/NavBtn';
 import { IProject } from '../data-structures/Project';
-import { gotProjectsAction, toggleNewProjectModalAction } from '../redux/Projects';
+import { gotProjectsAction, toggleNewProjectModalAction, toggleNewTaskModalAction } from '../redux/Projects';
 import { IAppState } from '../redux/Store';
 
 const LeftSidebar = () => {
@@ -30,6 +30,10 @@ const LeftSidebar = () => {
             dispatch(gotProjectsAction(newList));
         }
     }
+
+    const createTaskModal = () => {
+        dispatch(toggleNewTaskModalAction());
+    }
     
 
     return (
@@ -41,7 +45,7 @@ const LeftSidebar = () => {
             <hr/>
             {NavBtn('Go back', () => navigate(-1), location.pathname == '/' ? false : true, 'bi bi-arrow-left-square-fill', 'btn btn-secondary', '20px')}
             {NavBtn('Create project', () => createProjectModal(), matchPath({ path: '/'},location.pathname) != null ? true : false, 'bi bi-file-earmark-plus-fill', 'btn btn-primary', '20px')}
-            {NavBtn('Create task', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-node-plus-fill', 'btn btn-primary', '20px')}
+            {NavBtn('Create task', () => createTaskModal(), matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-node-plus-fill', 'btn btn-primary', '20px')}
             {NavBtn('Settings', () => {}, location.pathname == '/' ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
             {NavBtn('Project settings', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
             {NavBtn('Delete project', () => deleteProjectBtn(), matchPath({ path: '/Project/:id'},location.pathname) ? true : false, 'bi bi-trash', 'btn btn-danger deleteBtn', '20px')}

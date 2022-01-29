@@ -5,6 +5,7 @@ import { IProject } from '../data-structures/Project';
 import { openProjectAction } from '../redux/Projects';
 import { IAppState } from '../redux/Store';
 import SliderContainer from '../components/SliderContainer';
+import NewTaskModal from '../components/NewTaskModal';
 
 const Project = () => {
     const { id } = useParams();
@@ -12,6 +13,7 @@ const Project = () => {
     const dispatch = useDispatch();
     const projectList: IProject[] = useSelector((state:IAppState)=> state.projects.projects);
     const thisProject: IProject | null = useSelector((state:IAppState)=> state.projects.viewing);
+    const newTaskModal:boolean = useSelector((state: IAppState) => state.projects.showNewTaskModal);
 
     const renderTasks = () => {
         let newThisProject = projectList.find(x=>x.Info.id == projectId);
@@ -29,10 +31,24 @@ const Project = () => {
     
   return (
     <div>
-        <h4 style={{fontWeight: 'bold'}}>Gantt chart</h4>
         {
-            <SliderContainer></SliderContainer>
+            newTaskModal == true
+            ? <NewTaskModal></NewTaskModal>
+            : ''
         }
+        <div
+            style={{
+                filter: newTaskModal == true ? 'blur(10px)' : 'blur(0px)',
+                pointerEvents: newTaskModal == true ? 'none' : 'all',
+                transition: '0.5s ease-in-out'
+            }}
+        >
+            <h4 style={{fontWeight: 'bold'}}>Gantt chart</h4>
+            {
+                <SliderContainer></SliderContainer>
+            }
+        </div>
+        
     </div>
   );
 };

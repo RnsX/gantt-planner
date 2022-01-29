@@ -7,6 +7,8 @@ export interface IProjectState {
     readonly viewing: IProject | null;
     readonly showNewProjectModal: boolean;
     readonly showEditProjectModal: boolean;
+    readonly showNewTaskModal: boolean;
+    readonly showEditTaskModal: boolean;
 };
 
 export const initialProjectState: IProjectState = {
@@ -14,7 +16,9 @@ export const initialProjectState: IProjectState = {
     projects: [],
     viewing: null,
     showNewProjectModal: false,
-    showEditProjectModal: false
+    showEditProjectModal: false,
+    showNewTaskModal: false,
+    showEditTaskModal: false
 };
 
 export const GETTINGPROJECTS = 'GettingProjects';
@@ -48,4 +52,15 @@ export const UPDATELOCATION = 'UpdateLocation';
 export const updateLocationAction = (projects: IProject[]) => ({
     type: UPDATELOCATION,
     data: projects
-}as const)
+}as const);
+
+export const TOGGLENEWTASKMODAL = 'ToggleNewTaskModal';
+export const toggleNewTaskModalAction = () => ({
+    type: TOGGLENEWTASKMODAL
+} as const);
+
+
+export const TOGGLEEDITTASKMODAL = 'ToggleEditTaskModal';
+export const toggleEditTaskModalAction = () => ({
+    type: TOGGLEEDITTASKMODAL
+} as const);

@@ -7,6 +7,7 @@ import ProjectCard from '../components/ProjectCard';
 import { API_GetProjects } from '../placeholder-data/Projects';
 import { Link } from 'react-router-dom';
 import NewProjModal from '../components/NewProjModal';
+import NewTaskModal from '../components/NewTaskModal';
 
 const ProjectList = () => {
 
