@@ -82,7 +82,7 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                         transform: `translateX(${slider.diff}px)`,
                         display: `flex`,
                         justifyContent: `flex-end`,
-                        backgroundColor: `${slider.isChangingWidth == true ? 'lightgreen' : 'white'}`,
+                        backgroundColor: `${slider.isChangingWidth == true ? 'lightgreen' : props.task.TaskInfo.color}`,
                         margin: '0.5em',
                         boxShadow: '-5px 1px 20px 1px rgba(0,0,0,0.13)',
                         border: '1px solid #e2e2e2c9',

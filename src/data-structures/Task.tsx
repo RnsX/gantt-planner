@@ -5,6 +5,7 @@ export interface ITask {
         id: number,
         orderId: number,
         name: string,
+        color: string
     },
     location: ILocation,
     predecesors: IDependency[],

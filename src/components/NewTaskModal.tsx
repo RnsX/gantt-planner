@@ -23,7 +23,8 @@ const NewTaskModal = () => {
                 TaskInfo: {
                     id: 0,
                     orderId: 0,
-                    name: ''
+                    name: '',
+                    color: 'white'
                 },
                 location: defaultLocationState,
                 predecesors: [],
@@ -63,7 +64,8 @@ const NewTaskModal = () => {
     const [taskInfo, setTaskInfo] = useState({
         id: 0,
         orderId: 0,
-        name: ''
+        name: '',
+        color: 'white'
     });
     const updateTaskInfo = (input:string, value: string) => {
         setTaskInfo({...taskInfo, [input]:value});
@@ -87,6 +89,15 @@ const NewTaskModal = () => {
         <button onClick={closeModal} className='btn btn-danger btn-sm' style={{width: 'fit-content', position: 'absolute', right: '0', marginRight: '1.7em'}}>X</button>
         <label className='form-label' style={{marginTop: '1em'}}>Name</label>
         <input name="name" onChange={(e:React.ChangeEvent<HTMLInputElement>) => updateTaskInfo(e.target.name, e.target.value)} className='form-control' value={taskInfo.name}></input>
+        <label className='form-label' style={{marginTop: '1em'}}>Color</label>
+        <select onChange={(e:React.ChangeEvent<HTMLSelectElement>) => updateTaskInfo(e.target.name, e.target.value)} name="color" className="form-select" aria-label="Choose color">
+            <option selected value="white">White</option>
+            <option value="#5264ff">Blue</option>
+            <option value="#161616">Black</option>
+            <option value="#f07f7f">Red</option>
+            <option value="#fff47a">Yellow</option>
+        </select>
+        
         {/* Add new resource (with rendered resource list) */}
         {/* Add new dependency (with rendered dependency list) */}
         <button onClick={newTask} className='btn btn-outline-success btn-sm' style={{width: '100%', marginTop: '1em'}}>Create</button>
