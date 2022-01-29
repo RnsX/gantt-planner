@@ -6,11 +6,13 @@ import { IAppState } from '../redux/Store';
 import ProjectCard from '../components/ProjectCard';
 import { API_GetProjects } from '../placeholder-data/Projects';
 import { Link } from 'react-router-dom';
+import NewProjModal from '../components/NewProjModal';
 
 const ProjectList = () => {
 
     const dispatch = useDispatch();
     const projectList:IProject[] = useSelector((state: IAppState) => state.projects.projects);
+    const newProjectModal:boolean = useSelector((state: IAppState) => state.projects.showNewProjectModal);
  
     const renderProjectList = async () => {
         if(projectList.length == 0)
@@ -27,10 +29,21 @@ const ProjectList = () => {
 
     return (
         <div>
-            <div className='projectList'>
+            {
+                newProjectModal == true
+                ? <NewProjModal></NewProjModal>
+                : ''
+            }
+            <div className='projectList'
+                style={{
+                    filter: newProjectModal == true ? 'blur(10px)' : 'blur(0px)',
+                    pointerEvents: newProjectModal == true ? 'none' : 'all',
+                    transition: '0.5s ease-in-out'
+                }}
+            >
                 {
                     projectList.map((project)=> (
-                        <Link key={project.Info.id} to={`/Project/${project.Info.id}`}>
+                        <Link key={project.Info.id} to={`/Project/${project.Info.id}`} style={{textDecoration: 'none'}}>
                             <ProjectCard project={project}></ProjectCard>
                         </Link>
                     ))

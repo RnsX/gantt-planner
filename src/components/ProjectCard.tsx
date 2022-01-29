@@ -7,20 +7,25 @@ const ProjectCard = (props:{project:IProject}) => {
     
     return (
         <div className='projCardContainer'>
-            <h3>{project.Info.name}</h3>
-            <hr/>
-            <h5>Description:</h5>
-            <p>{project.Info.description}</p>
+            <div>
+                <h3>{project.Info.name}</h3>
+                <hr/>
+                <h5>Description:</h5>
+                <p>{project.Info.description}</p>
+                <button className='btn btn-outline-success btn-sm' style={{width: '100%'}}>Open</button>
+            </div>
+            
             <style>
                 {`
                     .projCardContainer {
-                        width: 200px;
+                        width: 250px;
                         min-height: 200px;
-                        padding: 0.75em;
+                        padding: 1.5em;
                         border: 1px solid lightgray;
                         border-radius: 1em;
                         background-color: white;
                         margin: 1em;
+                        color: #474747;
                     }
                     
                     .projCardContainer:hover{
