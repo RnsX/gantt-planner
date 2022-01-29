@@ -62,7 +62,7 @@ export let API_projectList:IProject[] = [
             assignedResources: []
         },
         {
-            TaskInfo: {id: 2, orderId: 1, name: 'placeholder task 2'},
+            TaskInfo: {id: 2, orderId: 2, name: 'placeholder task 2'},
             location: {
                 isMoving: false,
                 lastLocation: 0,
@@ -77,7 +77,7 @@ export let API_projectList:IProject[] = [
             assignedResources: []
         },
         {
-            TaskInfo: {id: 3, orderId: 1, name: 'placeholder task 3'},
+            TaskInfo: {id: 3, orderId: 3, name: 'placeholder task 3'},
             location: {
                 isMoving: false,
                 lastLocation: 0,
@@ -92,7 +92,7 @@ export let API_projectList:IProject[] = [
             assignedResources: []
         },
         {
-            TaskInfo: {id: 4, orderId: 1, name: 'placeholder task 4'},
+            TaskInfo: {id: 4, orderId: 4, name: 'placeholder task 4'},
             location: {
                 isMoving: false,
                 lastLocation: 0,

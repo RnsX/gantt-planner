@@ -35,7 +35,7 @@ const NewTaskModal = () => {
 
             // assign new task id
             let task = projectList.filter(x=>x.Info.id == viewing.Info.id)[0].Tasks;
-            let newTaskId = task.length;
+            let newTaskId = task.length+1;
             newTask.TaskInfo.id = newTaskId;
 
             // assign new order id
@@ -45,7 +45,7 @@ const NewTaskModal = () => {
                 ? newOrderId = task.TaskInfo.orderId
                 : newOrderId = newOrderId;
             });
-            newOrderId++;
+            newOrderId = newOrderId+1;
             newTask.TaskInfo.orderId = newOrderId;
 
             // create new task list
