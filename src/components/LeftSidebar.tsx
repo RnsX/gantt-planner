@@ -33,7 +33,7 @@ const LeftSidebar = () => {
     
 
     return (
-        <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar-high'>
+        <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar-high' style={{height: '100vh'}}>
             <div className='d-flex flex-row flex-shrink-0 p-1'>
                 <h4>My Gantt Planner</h4>
             </div>
@@ -44,10 +44,17 @@ const LeftSidebar = () => {
             {NavBtn('Create task', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-node-plus-fill', 'btn btn-primary', '20px')}
             {NavBtn('Settings', () => {}, location.pathname == '/' ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
             {NavBtn('Project settings', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
-            {NavBtn('Delete project', () => deleteProjectBtn(), matchPath({ path: '/Project/:id'},location.pathname) ? true : false, 'bi bi-trash', 'btn btn-danger', '20px')}
+            {NavBtn('Delete project', () => deleteProjectBtn(), matchPath({ path: '/Project/:id'},location.pathname) ? true : false, 'bi bi-trash', 'btn btn-danger deleteBtn', '20px')}
         
         <style>
             {`
+                .deleteBtn {
+                    margin-top: auto;
+                    max-width: 218px;
+                    position: absolute;
+                    bottom: 0;
+                    margin-bottom: 1em;
+                }
                 .sidebar-high {
                     min-height: 100vh;
                     min-width: 250px;
