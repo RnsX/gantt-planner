@@ -1,19 +1,34 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 import NavBtn from '../components/NavBtn';
-import { toggleNewProjectModalAction } from '../redux/Projects';
+import { IProject } from '../data-structures/Project';
+import { gotProjectsAction, toggleNewProjectModalAction } from '../redux/Projects';
+import { IAppState } from '../redux/Store';
 
 const LeftSidebar = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
+    const viewing: IProject | null = useSelector((state:IAppState)=> state.projects.viewing);
+    const projects: IProject[] = useSelector((state:IAppState)=> state.projects.projects);
+
     // button & function for "add new project"
     // right click and "edit project" or "remove project"
 
     const createProjectModal = () => {
         dispatch(toggleNewProjectModalAction());
+    }
+
+    const deleteProjectBtn = () => {
+        if(viewing != null)
+        {
+            let newList = projects;
+            newList.splice(newList.indexOf(viewing),1);
+            navigate(-1);
+            dispatch(gotProjectsAction(newList));
+        }
     }
     
 
@@ -29,7 +44,7 @@ const LeftSidebar = () => {
             {NavBtn('Create task', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-node-plus-fill', 'btn btn-primary', '20px')}
             {NavBtn('Settings', () => {}, location.pathname == '/' ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
             {NavBtn('Project settings', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
-       
+            {NavBtn('Delete project', () => deleteProjectBtn(), matchPath({ path: '/Project/:id'},location.pathname) ? true : false, 'bi bi-trash', 'btn btn-danger', '20px')}
         
         <style>
             {`

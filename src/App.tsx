@@ -17,9 +17,9 @@ function App() {
         <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100vh'}} className='shadowAlternative'>
           <LeftSidebar></LeftSidebar>
         </div>
-        <div className='b-example-divider divider-additional' style={{minWidth: '2em'}}>
+        {/* <div className='b-example-divider divider-additional' style={{minWidth: '2em'}}>
 
-        </div>
+        </div> */}
         <div style={{width: '100%', paddingLeft: '1em', paddingTop: '1em'}}>
           <Routes>
             <Route path="/" element={<ProjectList></ProjectList>}/>
