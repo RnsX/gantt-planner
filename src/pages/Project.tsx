@@ -43,7 +43,6 @@ const Project = () => {
                 transition: '0.5s ease-in-out'
             }}
         >
-            <h4 style={{fontWeight: 'bold'}}>Gantt chart</h4>
             {
                 <SliderContainer></SliderContainer>
             }

@@ -12,15 +12,13 @@ function App() {
   const redux = useSelector((state:IAppState) => state.projects.projects);
 
   return (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', height: '100vh'}}>
       <BrowserRouter>
-        <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100vh'}} className='shadowAlternative'>
+        <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100%'}} className='shadowAlternative'>
           <LeftSidebar></LeftSidebar>
         </div>
-        {/* <div className='b-example-divider divider-additional' style={{minWidth: '2em'}}>
-
-        </div> */}
-        <div style={{width: '100%', paddingLeft: '1em', paddingTop: '1em'}}>
+        
+        <div style={{minWidth: '100%', paddingLeft: '1em', height: '100%'}}>
           <Routes>
             <Route path="/" element={<ProjectList></ProjectList>}/>
             <Route path="/Project/:id" element={<Project></Project>}/>

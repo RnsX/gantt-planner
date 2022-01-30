@@ -34,38 +34,22 @@ const SliderContainer = () => {
   }
 
   return (
-      <div className='sliderContainer'>
-      <RightClickWindow windowProps={rClickMenu} closeWindow={hideRightClick}/>
-      <Timeline></Timeline>
-      
-      {
-        props != null && props.Tasks.length != 0 
-        ? props.Tasks.sort((a, b) => a.TaskInfo.orderId > b.TaskInfo.orderId ? 1 : -1).map((task,idx)=> (
-          <div id={task.TaskInfo.id.toString()} onContextMenu={(e:React.MouseEvent<HTMLElement>) => showRightClick(e.clientX, e.clientY, e.currentTarget.id,e, task.location.lastLocation, task.location.lastDiff, task.TaskInfo.id, task.TaskInfo.orderId)}>
-            <TaskRow key={`${task.TaskInfo.id}|${props.Info.id}`} task={task} project={props}></TaskRow>
-          </div>
-        ))
-        : <p>no tasks found</p>
-      }
-      <style>
-        {`
-          .page {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
+      <div className='' style={{paddingTop: ''}}>
+        <RightClickWindow windowProps={rClickMenu} closeWindow={hideRightClick}/>
+        <Timeline></Timeline>
+        
+        <div style={{paddingTop: '3em'}}>
+          {
+            props != null && props.Tasks.length != 0 
+            ? props.Tasks.sort((a, b) => a.TaskInfo.orderId > b.TaskInfo.orderId ? 1 : -1).map((task,idx)=> (
+              <div id={task.TaskInfo.id.toString()} onContextMenu={(e:React.MouseEvent<HTMLElement>) => showRightClick(e.clientX, e.clientY, e.currentTarget.id,e, task.location.lastLocation, task.location.lastDiff, task.TaskInfo.id, task.TaskInfo.orderId)}>
+                <TaskRow key={`${task.TaskInfo.id}|${props.Info.id}`} task={task} project={props}></TaskRow>
+              </div>
+            ))
+            : <p>no tasks found</p>
           }
-          
-          .sliderContainer {
-              min-width: 500px;
-              height: fit-content;
-              overflow: hidden;
-              padding: 1em;
-              padding: 1em;
-          }
-        `}
-      </style>
+        </div>
+        
       </div>
   )
 };
