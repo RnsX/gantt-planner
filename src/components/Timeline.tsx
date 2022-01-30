@@ -9,7 +9,7 @@ const Timeline = () => {
         return (
             monthlyCalendar.map((month, idx) => (
                 <div style={{
-                    textAlign: 'center', color: 'lightgray', borderLeft: '1px solid lightgray', width: '100px', marginTop: '1em'
+                    textAlign: 'center', color: 'lightgray', borderLeft: '1px solid lightgray', minWidth: '100px', marginTop: '1em', flex: '0'
                 }}>
                     {month}
                 </div>
@@ -19,8 +19,18 @@ const Timeline = () => {
     }
 
     return (
-        <div style={{ width: '100%', paddingLeft: '272px', position: 'absolute', height: '100%', display: 'flex', overflow: 'hidden', fontSize: 'medium'}}>
+        <div className='userSelectionSettings' style={{width: '100%', paddingLeft: '324px', position: 'absolute', height: '100%', display: 'flex', overflow: 'hidden', fontSize: 'medium'}}>
             {renderTimelineGrid()}
+            <style>
+                {`
+                    .userSelectionSettings {
+                        user-select: none;
+                        -moz-user-select: none;
+                        -webkit-user-select: none;
+                        -ms-user-select: none;
+                    }
+                `}
+            </style>
         </div>
     )
 };

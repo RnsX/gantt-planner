@@ -76,7 +76,7 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                 <div style={{
                         minWidth: `${slider.deltaWidth}px`,
                         maxWidth: `${slider.deltaWidth}px`,
-                        height: `50px`,
+                        height: `35px`,
                         borderRadius: '0.3em',
                         transform: `translateX(${slider.diff}px)`,
                         display: `flex`,
@@ -101,6 +101,11 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                 
                 .tableRow > td {
                     padding-right: 1em;
+                    padding-left: 1em;
+                    width: 325px;
+                    -moz-user-select: none;
+                    -webkit-user-select: none;
+                    -ms-user-select: none;
                 }
                 .task-container {
                     display: flex;
@@ -109,15 +114,12 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                     border-top: 1px solid lightgray;
                 }
                 .task-left {
-                    margin-right: 2em;
-                    padding: 0.5em;
-                    width: 300px;
                     text-align: left;
+                    width: fit-content;
                 }
                 .slider-container {
                     overflow: hidden;
-                    width: 100%;
-                    border-left: 1px solid lightgray;
+                    flex: 1;
                     user-select: none;
                     -moz-user-select: none;
                     -webkit-user-select: none;
