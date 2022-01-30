@@ -1,3 +1,4 @@
+import { warn } from 'console';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
@@ -46,8 +47,8 @@ const LeftSidebar = () => {
             {NavBtn('Go back', () => navigate(-1), location.pathname == '/' ? false : true, 'bi bi-arrow-left-square-fill', 'btn btn-secondary', '20px')}
             {NavBtn('Create project', () => createProjectModal(), matchPath({ path: '/'},location.pathname) != null ? true : false, 'bi bi-file-earmark-plus-fill', 'btn btn-primary', '20px')}
             {NavBtn('Create task', () => createTaskModal(), matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-node-plus-fill', 'btn btn-primary', '20px')}
-            {NavBtn('Settings', () => {}, location.pathname == '/' ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
-            {NavBtn('Project settings', () => {}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
+            {NavBtn('Settings', () => {alert('Not yet implemented!')}, location.pathname == '/' ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
+            {NavBtn('Project settings',() => {alert('Not yet implemented!')}, matchPath({ path: '/Project/:id'},location.pathname) != null ? true : false, 'bi bi-gear', 'btn btn-secondary', '20px')}
             {NavBtn('Delete project', () => deleteProjectBtn(), matchPath({ path: '/Project/:id'},location.pathname) ? true : false, 'bi bi-trash', 'btn btn-danger deleteBtn', '20px')}
         
         <style>
