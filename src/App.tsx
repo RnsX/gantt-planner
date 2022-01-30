@@ -12,7 +12,7 @@ function App() {
   const redux = useSelector((state:IAppState) => state.projects.projects);
 
   return (
-    <div style={{display: 'flex', height: '100vh'}}>
+    <div style={{display: 'flex', height: '100vh', width: 'fit-content'}}>
       <BrowserRouter>
         <div style={{width: '250px', borderRight:'1px solid lightgray', height: '100%'}} className='shadowAlternative'>
           <LeftSidebar></LeftSidebar>

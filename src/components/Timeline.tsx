@@ -19,7 +19,7 @@ const Timeline = () => {
     }
 
     return (
-        <div className='userSelectionSettings' style={{width: '100%', paddingLeft: '324px', position: 'absolute', height: '100%', display: 'flex', overflow: 'hidden', fontSize: 'medium'}}>
+        <div className='userSelectionSettings' style={{width: '100%', paddingLeft: '224px', position: 'absolute', height: '100%', display: 'flex', overflow: 'hidden', fontSize: 'medium'}}>
             {renderTimelineGrid()}
             <style>
                 {`

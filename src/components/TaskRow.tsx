@@ -102,7 +102,7 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
                 .tableRow > td {
                     padding-right: 1em;
                     padding-left: 1em;
-                    width: 325px;
+                    width: 225px;
                     -moz-user-select: none;
                     -webkit-user-select: none;
                     -ms-user-select: none;

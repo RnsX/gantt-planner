@@ -34,7 +34,7 @@ const SliderContainer = () => {
   }
 
   return (
-      <div className='' style={{paddingTop: ''}}>
+      <div style={{position: 'absolute', width: '100%'}}>
         <RightClickWindow windowProps={rClickMenu} closeWindow={hideRightClick}/>
         <Timeline></Timeline>
         
