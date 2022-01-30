@@ -5,6 +5,7 @@ import { ITask } from '../data-structures/Task';
 import { IAppState } from '../redux/Store';
 import TaskRow from './TaskRow';
 import RightClickWindow, { IRightClickWindowProps } from '../components/RightClickWindow';
+import Timeline from '../components/Timeline';
 
 
 const SliderContainer = () => {
@@ -35,7 +36,8 @@ const SliderContainer = () => {
   return (
       <div className='sliderContainer'>
       <RightClickWindow windowProps={rClickMenu} closeWindow={hideRightClick}/>
-
+      <Timeline></Timeline>
+      
       {
         props != null && props.Tasks.length != 0 
         ? props.Tasks.sort((a, b) => a.TaskInfo.orderId > b.TaskInfo.orderId ? 1 : -1).map((task,idx)=> (

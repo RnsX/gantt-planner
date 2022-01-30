@@ -68,7 +68,6 @@ const TaskRow = (props:{task: ITask, project: IProject}) => {
             <div className='task-left'>
                 <table className='taskTable'>
                     <tr className='tableRow'>
-                        <td>{id}</td>
                         <td>{name}</td>
                     </tr>
                 </table>
