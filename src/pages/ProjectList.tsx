@@ -53,10 +53,6 @@ const ProjectList = () => {
                 {`
                     .projectList {
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 100%;
-                        height: 80vh;
                         flex-wrap: wrap;
                     }
                 `}
