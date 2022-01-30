@@ -2,7 +2,7 @@
 
 ## My Gantt Planner
 
-My Gantt Planner project was intended for practicing *speed coding*. Such project format was chosen because there isn't enough time in the world for *outside of work* practice projects. 
+My Gantt Planner project was intended for practicing *speed coding - design and delivery of concept in as short time as possible*. Such project format was chosen because there isn't enough time in the world for *outside of work* practice projects. 
 
 The aim for the project was to cover basic things such as router-dom and state management (redux, useState hook) as well as some more interesting UI/UX elements such as movable sliders.
 
