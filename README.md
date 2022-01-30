@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## My Gantt Planner
 
-## Available Scripts
+My Gantt Planner project was intended for practicing *speed coding - design and delivery of concept in as short time as possible*. Such project format was chosen because there isn't enough time in the world for *outside of work* practice projects.
 
-In the project directory, you can run:
+The aim for the project was to cover basic things such as router-dom and state management (redux, useState hook) as well as some more interesting UI/UX elements such as movable sliders.
 
-### `npm start`
+## Development length
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Total development time for this project (from pencil draft concept idea to final build) was 16 hours
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Software stack
 
-### `npm test`
+Web application was made using Typescript, ReactJS and Bootstrap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# User manual
 
-### `npm run build`
+Link to webapp - https://rnsx.my-gantt-planner.io
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Manage projects:
+- Create a new project in main page of the app
+- Open project by pressing "open" or click anywhere on project card
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Manage tasks:
+- Create new tasks within project by using sidebar
+- Move tasks up and down (change order) by right clicking on task slider
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Manage task sliders:
+- Double click on slider to change width (when changing width mode is enabled, the slider will turn green)
+- Click and drag sideways the slider to move it along the timeline
 
-### `npm run eject`
+# Design and development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Implemented functionality
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Tasks are grouped within projects
+2. Each task can have specific color, name, duration as well as location in timeline
+3. Tasks can be added
+4. Projects can be added and removed
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Excluded / cut functionality
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Remove task
+2. Create task dependencies (links)
+3. Assign resources to each task
+4. Linked tasks move together if link dependency between them is 'concrete'
+5. Separating projects between users
+6. Sharing project between users
+7. Login functionality
 
-## Learn More
+## Design concepts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Data domains (started with User/Project/Task/SubTask, final version was simplified greatly)
+![Data concept](https://github.com/RnsX/My-Gantt-Planner/blob/master/Screenshot%202022-01-30%20at%2018.41.20.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Gantt chart design with sidebar
+![Chart design](https://github.com/RnsX/My-Gantt-Planner/blob/master/Screenshot%202022-01-30%20at%2018.41.37.png)
+
+3. Gantt chart task slider design
+![Chart slider](https://github.com/RnsX/My-Gantt-Planner/blob/master/Screenshot%202022-01-30%20at%2018.41.42.png)
+
+3. Data architecture
+![Data architecture](https://github.com/RnsX/My-Gantt-Planner/blob/master/Screenshot%202022-01-30%20at%2018.41.47.png)
+
+4. Initial sketch of data object interface design and contents
+![Data object sketch](https://github.com/RnsX/My-Gantt-Planner/blob/master/Screenshot%202022-01-30%20at%2018.42.09.png)
+
+
+
