@@ -16,7 +16,7 @@ Web application was made using Typescript, ReactJS and Bootstrap
 
 # User manual
 
-Link to webapp - https://rnsx.my-gantt-planner.io
+Link to webapp - https://wonderful-mud-0541f1703.1.azurestaticapps.net
 
 Manage projects:
 - Create a new project in main page of the app
