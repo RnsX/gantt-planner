@@ -1,4 +1,4 @@
-import { GOTPROJECTS_GRAPH, initialGraphProjectState, OPENPROJECT_GRAPH } from "./GraphProjects";
+import { GETTINGPROJECTS_GRAPH, GOTPROJECTS_GRAPH, initialGraphProjectState, OPENPROJECT_GRAPH } from "./GraphProjects";
 import { GraphProjectsActions } from "./GraphProjectsActions";
 
 export const graphProjectsReducer = (
@@ -18,6 +18,13 @@ export const graphProjectsReducer = (
             return {
                 ...state,
                 graphViewing: action.grahProject
+            }
+        }
+
+        case GETTINGPROJECTS_GRAPH: {
+            return {
+                ...state,
+                graphLoading: !state.graphLoading
             }
         }
     }

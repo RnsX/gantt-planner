@@ -20,6 +20,11 @@ export const initialGraphProjectState: IGraphProjectState = {
     editGraphTaskModal: false
 };
 
+export const GETTINGPROJECTS_GRAPH = 'GettingProjectsGraph';
+export const gettingProjectsGraphAction = () => ({
+    type: GETTINGPROJECTS_GRAPH,
+} as const);
+
 export const GOTPROJECTS_GRAPH = 'GotProjectsGraph';
 export const gotProjectsGraphAction = (projects: IProjectGrph[]) => ({
     type: GOTPROJECTS_GRAPH,
