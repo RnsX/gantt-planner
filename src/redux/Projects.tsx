@@ -18,7 +18,7 @@ export const initialProjectState: IProjectState = {
     showNewProjectModal: false,
     showEditProjectModal: false,
     showNewTaskModal: false,
-    showEditTaskModal: false
+    showEditTaskModal: false,
 };
 
 export const GETTINGPROJECTS = 'GettingProjects';

@@ -75,6 +75,7 @@ const RightClickWindow = (props:{windowProps: IRightClickWindowProps, closeWindo
         }
     }
 
+    
     return (
         <div className='menu-toggle'>
             <div className='dropdown-menu dropdown-menu-dark mx-0 shadow rightClickMenu' style={{width: '220px'}}>
