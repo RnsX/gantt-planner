@@ -21,4 +21,5 @@ export const graphProjectsReducer = (
             }
         }
     }
+    return state;
 }
