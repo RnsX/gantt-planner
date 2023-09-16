@@ -40,7 +40,7 @@ const LeftSidebar = () => {
     return (
         <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar-high' style={{height: '100vh'}}>
             <div className='d-flex flex-row flex-shrink-0 p-1'>
-                <h4>My Gantt Planner</h4>
+                <h4>Agilefall Planner</h4>
             </div>
 
             <hr/>

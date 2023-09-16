@@ -2,7 +2,7 @@ import React from 'react';
 
 const Timeline = () => {
 
-    const monthlyCalendar = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const monthlyCalendar = ["Sprint 1", "Sprint 2", "Sprint 3", "Sprint 4", "Sprint 5", "Sprint 6", "Sprint 7", "Sprint 8", "Sprint 9", "Sprint 10", "Sprint 11", "Sprint 12"]
     
     const renderTimelineGrid = () => {
 
